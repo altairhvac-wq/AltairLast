@@ -102,18 +102,35 @@ document.getElementById("scheduledJobs").innerText =
       card.className = "job-card";
 
       card.innerHTML =
-        <button onclick="deleteJob('${job.jobId}')">
-  Delete
-</button>`
-        <h3>${job.customer}</h3>
-        <p>
-  <span class="status-badge ${job.status.toLowerCase()}">
-    ${job.status}
-  </span>
-</p>
-        <p><strong>Job ID:</strong> ${job.jobId}</p>
-        <p><strong>Revenue:</strong> $${job.revenue}</p>
-      `;
+      card.innerHTML = `
+
+  <h3>${job.customer}</h3>
+
+  <p>
+    <span class="status-badge ${job.status.toLowerCase()}">
+      ${job.status}
+    </span>
+  </p>
+
+  <p><strong>Job ID:</strong> ${job.jobId}</p>
+
+  <p><strong>Revenue:</strong> $${job.revenue}</p>
+
+  <p><strong>Technician:</strong></p>
+
+  <select onchange="assignTech('${job.jobId}', this.value)">
+
+    <option value="">Assign Tech</option>
+
+    <option value="Jeremiah">Jeremiah</option>
+
+    <option value="Mike">Mike</option>
+
+    <option value="Chris">Chris</option>
+
+  </select>
+
+`;
 
       container.appendChild(card);
 
