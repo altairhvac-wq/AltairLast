@@ -152,7 +152,9 @@ const filteredData =
 
         <p>
           <strong>Technician:</strong>
-          ${job.tech || "Unassigned"}
+          <span class="tech-name">
+  ${job.tech || "Unassigned"}
+</span>
         </p>
 
         <select
