@@ -14,11 +14,22 @@ async function loadJobs() {
 
     const data = await response.json();
 
+    const searchValue = document
+  .getElementById("searchInput")
+  .value
+  .toLowerCase();
+
+const filteredData = data.filter(job => {
+  return job.customer
+    .toLowerCase()
+    .includes(searchValue);
+});
+
     let totalRevenue = 0;
 let completedJobs = 0;
 let scheduledJobs = 0;
 
-data.forEach(job => {
+filteredData.forEach(job => {
 
   totalRevenue += Number(job.revenue) || 0;
 
