@@ -135,9 +135,20 @@ const filteredData =
         </p>
 
         <p>
-          <strong>Revenue:</strong>
-          $${job.revenue}
-        </p>
+  <strong>Revenue:</strong>
+  $${job.revenue}
+</p>
+
+<p>
+  <strong>Assigned Tech:</strong>
+  ${job.tech || "Unassigned"}
+</p>
+
+<button
+  onclick="updateStatus('${job.jobId}', 'Completed')"
+>
+  Mark Complete
+</button>
 
         <p>
           <strong>Technician:</strong>
