@@ -34,6 +34,20 @@ const filteredData = data.filter(job => {
 
   return matchesSearch && matchesStatus;
 });
+    async function deleteJob(jobId) {
+
+  if (!confirm("Delete this job?")) return;
+
+  await fetch(API_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      action: "delete",
+      jobId: jobId
+    })
+  });
+
+  loadJobs();
+}
 
     let totalRevenue = 0;
 let completedJobs = 0;
@@ -73,7 +87,10 @@ document.getElementById("scheduledJobs").innerText =
 
       card.className = "job-card";
 
-      card.innerHTML = `
+      card.innerHTML =
+        <button onclick="deleteJob('${job.jobId}')">
+  Delete
+</button>`
         <h3>${job.customer}</h3>
         <p>
   <span class="status-badge ${job.status.toLowerCase()}">
