@@ -24,7 +24,11 @@ async function loadJobs() {
 
       card.innerHTML = `
         <h3>${job.customer}</h3>
-        <p><strong>Status:</strong> ${job.status}</p>
+        <p>
+  <span class="status-badge ${job.status.toLowerCase()}">
+    ${job.status}
+  </span>
+</p>
         <p><strong>Job ID:</strong> ${job.jobId}</p>
         <p><strong>Revenue:</strong> $${job.revenue}</p>
       `;
