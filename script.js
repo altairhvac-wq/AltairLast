@@ -1,6 +1,10 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbxyorkmL2NdW9EomNQQaobBj0SbJEyPThCM3yRWqWHUgP2Hbuyxbke7aIiRYrMRDhnKbQ/exec";
 
 window.onload = async function () {
+  loadJobs();
+};
+
+async function loadJobs() {
 
   const container = document.getElementById("jobs");
 
@@ -15,17 +19,14 @@ window.onload = async function () {
     data.forEach(job => {
 
       const card = document.createElement("div");
-card.className = "job-card";
 
-      card.style.border = "1px solid #ccc";
-      card.style.padding = "10px";
-      card.style.margin = "10px";
+      card.className = "job-card";
 
       card.innerHTML = `
         <h3>${job.customer}</h3>
-        <p>Status: ${job.status}</p>
-        <p>Job ID: ${job.jobId}</p>
-        <p>Revenue: $${job.revenue}</p>
+        <p><strong>Status:</strong> ${job.status}</p>
+        <p><strong>Job ID:</strong> ${job.jobId}</p>
+        <p><strong>Revenue:</strong> $${job.revenue}</p>
       `;
 
       container.appendChild(card);
@@ -34,13 +35,46 @@ card.className = "job-card";
 
   } catch (error) {
 
-    console.error(error);
+    console.error("ERROR:", error);
 
     container.innerHTML = `
       <h2>Error loading jobs</h2>
-      <p>Check script.js API URL</p>
+      <p>Check console for details</p>
     `;
 
   }
 
-};
+}
+
+async function createJob() {
+
+  const customer = document.getElementById("customer").value;
+
+  const email = document.getElementById("email").value;
+
+  const revenue = document.getElementById("revenue").value;
+
+  try {
+
+    await fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        customer,
+        email,
+        revenue
+      })
+    });
+
+    document.getElementById("customer").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("revenue").value = "";
+
+    loadJobs();
+
+  } catch (error) {
+
+    console.error("Create Job Error:", error);
+
+  }
+
+}
