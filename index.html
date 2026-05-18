@@ -40,13 +40,58 @@
       margin: 8px 0;
     }
 
+    .job-form {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .job-form input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .job-form button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .job-form button:hover {
+      background: #1d4ed8;
+    }
+
   </style>
 
 </head>
 
 <body>
 
-  <h1>Jobs Dashboard</h1>
+  <h1>HVAC Dashboard</h1>
+
+  <div class="job-form">
+
+    <h2>Create Job</h2>
+
+    <input type="text" id="customer" placeholder="Customer Name">
+
+    <input type="email" id="email" placeholder="Customer Email">
+
+    <input type="number" id="revenue" placeholder="Revenue">
+
+    <button onclick="createJob()">Create Job</button>
+
+  </div>
 
   <div id="jobs"></div>
 
