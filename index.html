@@ -4,7 +4,7 @@
 <head>
 
   <title>HVAC Dashboard</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
 
     body {
@@ -178,7 +178,66 @@
       border-radius: 8px;
       margin-top: 5px;
     }
+@media (max-width: 768px) {
 
+  body {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .job-form,
+  .summary-card,
+  .job-card {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  #summary {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  #jobs {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .summary-card p {
+    font-size: 22px;
+  }
+
+  input,
+  select,
+  button {
+    width: 100%;
+    font-size: 16px;
+    padding: 14px;
+    box-sizing: border-box;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+
+  .status-badge {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+}
+    .search-bar,
+#statusFilter {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #f4f6f8;
+  padding-top: 10px;
+}
   </style>
 
 </head>
