@@ -56,12 +56,11 @@
       margin: 8px 0;
     }
     .status-badge {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 20px;
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
+  <select onchange="updateStatus('${job.jobId}', this.value)">
+  <option value="Scheduled">Scheduled</option>
+  <option value="Completed">Completed</option>
+  <option value="Invoiced">Invoiced</option>
+</select>
 }
 
 .scheduled {
