@@ -15,6 +15,7 @@ window.onload = async function () {
     data.forEach(job => {
 
       const card = document.createElement("div");
+card.className = "job-card";
 
       card.style.border = "1px solid #ccc";
       card.style.padding = "10px";
