@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>HVAC Dashboard</title>
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #1f2937;
+    }
+
+    #jobs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .job-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .job-card h3 {
+      margin-top: 0;
+      color: #111827;
+    }
+
+    .job-card p {
+      margin: 8px 0;
+    }
+
+  </style>
+
 </head>
+
 <body>
 
   <h1>Jobs Dashboard</h1>
+
   <div id="jobs"></div>
 
   <script src="script.js"></script>
 
 </body>
+
 </html>
