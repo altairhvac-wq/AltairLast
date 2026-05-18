@@ -29,23 +29,34 @@ async function loadJobs() {
         .getElementById("statusFilter")
         .value;
 
-    const filteredData =
-      data.filter(job => {
+    const techFilter =
+  document
+    .getElementById("techFilter")
+    .value;
 
-        const matchesSearch =
-          job.customer
-            .toLowerCase()
-            .includes(searchValue);
+const filteredData =
+  data.filter(job => {
 
-        const matchesStatus =
-          statusFilter === "All" ||
-          job.status === statusFilter;
+    const matchesSearch =
+      job.customer
+        .toLowerCase()
+        .includes(searchValue);
 
-        return (
-          matchesSearch &&
-          matchesStatus
-        );
+    const matchesStatus =
+      statusFilter === "All" ||
+      job.status === statusFilter;
 
+    const matchesTech =
+      techFilter === "All" ||
+      job.tech === techFilter;
+
+    return (
+      matchesSearch &&
+      matchesStatus &&
+      matchesTech
+    );
+
+  });
       });
 
     /*
