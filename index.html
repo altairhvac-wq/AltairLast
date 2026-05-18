@@ -94,6 +94,31 @@
     .job-form button:hover {
       background: #1d4ed8;
     }
+    #summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.summary-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.summary-card h3 {
+  margin: 0 0 10px 0;
+  color: #374151;
+}
+
+.summary-card p {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  color: #111827;
+}
 
   </style>
 
@@ -116,7 +141,29 @@
     <button onclick="createJob()">Create Job</button>
 
   </div>
+<div id="summary">
 
+  <div class="summary-card">
+    <h3>Total Revenue</h3>
+    <p id="totalRevenue">$0</p>
+  </div>
+
+  <div class="summary-card">
+    <h3>Total Jobs</h3>
+    <p id="totalJobs">0</p>
+  </div>
+
+  <div class="summary-card">
+    <h3>Completed</h3>
+    <p id="completedJobs">0</p>
+  </div>
+
+  <div class="summary-card">
+    <h3>Scheduled</h3>
+    <p id="scheduledJobs">0</p>
+  </div>
+
+</div>
   <div id="jobs"></div>
 
   <script src="script.js"></script>
