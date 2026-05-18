@@ -14,6 +14,36 @@ async function loadJobs() {
 
     const data = await response.json();
 
+    let totalRevenue = 0;
+let completedJobs = 0;
+let scheduledJobs = 0;
+
+data.forEach(job => {
+
+  totalRevenue += Number(job.revenue) || 0;
+
+  if (job.status === "Completed") {
+    completedJobs++;
+  }
+
+  if (job.status === "Scheduled") {
+    scheduledJobs++;
+  }
+
+});
+
+document.getElementById("totalRevenue").innerText =
+  "$" + totalRevenue.toLocaleString();
+
+document.getElementById("totalJobs").innerText =
+  data.length;
+
+document.getElementById("completedJobs").innerText =
+  completedJobs;
+
+document.getElementById("scheduledJobs").innerText =
+  scheduledJobs;
+
     container.innerHTML = "";
 
     data.forEach(job => {
