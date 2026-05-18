@@ -15,14 +15,24 @@ async function loadJobs() {
     const data = await response.json();
 
     const searchValue = document
+      const statusFilter = document
+  .getElementById("statusFilter")
+  .value;
   .getElementById("searchInput")
   .value
   .toLowerCase();
 
 const filteredData = data.filter(job => {
-  return job.customer
+
+  const matchesSearch = job.customer
     .toLowerCase()
     .includes(searchValue);
+
+  const matchesStatus =
+    statusFilter === "All" ||
+    job.status === statusFilter;
+
+  return matchesSearch && matchesStatus;
 });
 
     let totalRevenue = 0;
