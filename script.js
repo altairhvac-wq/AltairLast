@@ -1,8 +1,22 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbxyorkmL2NdW9EomNQQaobBj0SbJEyPThCM3yRWqWHUgP2Hbuyxbke7aIiRYrMRDhnKbQ/exec";
+async function updateStatus(jobId, status) {
+
+  await fetch(API_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      action: "updateStatus",
+      jobId,
+      status
+    })
+  });
+
+  loadJobs();
+}
 
 window.onload = async function () {
   loadJobs();
 };
+
 
 async function loadJobs() {
 
